@@ -203,6 +203,11 @@ def load_model():
    textColor = "#2C3E50"
    ```
 
+   **Important: Python Version**
+   - Open **Advanced settings** in Streamlit Cloud deployment.
+   - Set **Python version = 3.12**.
+   - Save settings before clicking **Deploy**.
+
 4. **Deploy**
    - Click "Deploy"
    - Wait for build (2-5 minutes first time)

@@ -5,8 +5,7 @@
 streamlit>=1.30.0
 
 # Deep Learning
-tensorflow>=2.15.0
-keras>=3.0.0
+tensorflow==2.19.1
 
 # Data Science
 numpy>=1.24.0
