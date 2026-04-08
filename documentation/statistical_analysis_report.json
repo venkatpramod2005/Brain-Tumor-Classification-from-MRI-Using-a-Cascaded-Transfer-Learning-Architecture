@@ -1,0 +1,154 @@
+{
+  "analysis_date": "2026-04-08",
+  "analysis_summary": {
+    "binary_classification": {
+      "accuracy": 0.958047292143402,
+      "confidence_interval_95": {
+        "lower": 0.9473684210526315,
+        "upper": 0.9687261632341724
+      },
+      "vs_random_baseline": {
+        "t_statistic": 32.20912123207096,
+        "p_value": 2.3955304507857678e-192,
+        "significant": true,
+        "interpretation": "Model significantly outperforms random guessing (p < 0.001)"
+      },
+      "sensitivity": 0.9635761589403974,
+      "specificity": 0.945679012345679,
+      "sensitivity_specificity_difference": 0.017897146594718416
+    },
+    "multiclass_classification": {
+      "overall_accuracy": 0.8410596026490066,
+      "confidence_interval_95": {
+        "lower": 0.8167770419426048,
+        "upper": 0.864266004415011
+      },
+      "per_class_accuracy": {
+        "glioma": 0.8333333333333334,
+        "meningioma": 0.7091503267973857,
+        "pituitary": 0.9833333333333333
+      },
+      "anova_test": {
+        "f_statistic": 46.98196393843181,
+        "p_value": 3.883737470983405e-20,
+        "significant": true,
+        "interpretation": "Significant differences exist between class accuracies (p < 0.05)"
+      }
+    },
+    "confidence_validation": {
+      "binary": {
+        "confidence_correctness_correlation": {
+          "pearson_r": 0.3893557511437779,
+          "p_value": 1.0496421407269583e-48,
+          "significant": true,
+          "interpretation": "Higher confidence significantly correlates with correctness"
+        },
+        "stratified_accuracy": {
+          "confidence_ge_0.5": {
+            "accuracy": 0.958047292143402,
+            "percentage_of_cases": 100.0
+          },
+          "confidence_ge_0.6": {
+            "accuracy": 0.9643410852713178,
+            "percentage_of_cases": 98.39816933638444
+          },
+          "confidence_ge_0.7": {
+            "accuracy": 0.9684044233807267,
+            "percentage_of_cases": 96.5675057208238
+          },
+          "confidence_ge_0.8": {
+            "accuracy": 0.9724473257698542,
+            "percentage_of_cases": 94.12662090007628
+          },
+          "confidence_ge_0.9": {
+            "accuracy": 0.9844020797227037,
+            "percentage_of_cases": 88.02440884820749
+          }
+        }
+      },
+      "multiclass": {
+        "stratified_accuracy": {
+          "confidence_ge_0.5": {
+            "accuracy": 0.8719153936545241,
+            "percentage_of_cases": 93.92935982339957
+          },
+          "confidence_ge_0.6": {
+            "accuracy": 0.8993630573248408,
+            "percentage_of_cases": 86.64459161147903
+          },
+          "confidence_ge_0.7": {
+            "accuracy": 0.9293948126801153,
+            "percentage_of_cases": 76.60044150110376
+          },
+          "confidence_ge_0.8": {
+            "accuracy": 0.9555921052631579,
+            "percentage_of_cases": 67.10816777041943
+          },
+          "confidence_ge_0.9": {
+            "accuracy": 0.9790794979079498,
+            "percentage_of_cases": 52.75938189845475
+          }
+        }
+      }
+    },
+    "mc_dropout": {
+      "available": true,
+      "dropout_rate": 0.4,
+      "forward_passes": 20,
+      "models_with_dropout": [
+        "binary",
+        "multiclass"
+      ],
+      "status": "Detected but variance data not included in evaluation CSV (requires separate MC Dropout inference run)"
+    },
+    "error_patterns": {
+      "most_confused_pairs": [
+        {
+          "class_1": "glioma",
+          "class_2": "meningioma",
+          "confusion_count": 74
+        },
+        {
+          "class_1": "meningioma",
+          "class_2": "pituitary",
+          "confusion_count": 53
+        },
+        {
+          "class_1": "glioma",
+          "class_2": "pituitary",
+          "confusion_count": 17
+        }
+      ]
+    }
+  },
+  "statistical_significance_summary": {
+    "binary_vs_random": "\u2713 Highly significant (p < 0.001)",
+    "multiclass_class_differences": "\u2713 Significant (p < 0.05)",
+    "confidence_calibration": "\u2713 Significant positive correlation (p < 0.001)",
+    "sample_size": {
+      "binary": 1311,
+      "multiclass": 906,
+      "sufficient_power": true
+    }
+  },
+  "conclusions": {
+    "reliability": "Models demonstrate statistically significant performance beyond chance",
+    "confidence_calibration": "Confidence scores are well-calibrated with actual accuracy",
+    "class_performance": "Significant performance differences exist between tumor types",
+    "clinical_implications": "High confidence predictions can be trusted; low confidence predictions require expert review"
+  },
+  "methodology": {
+    "tests_performed": [
+      "Independent samples t-test (binary vs random baseline)",
+      "One-way ANOVA (multi-class performance differences)",
+      "Pairwise t-tests (post-hoc class comparisons)",
+      "Bootstrap confidence intervals (n=1000)",
+      "Pearson correlation (confidence vs correctness)",
+      "Chi-square test (sensitivity vs specificity independence)",
+      "Confusion matrix analysis"
+    ],
+    "significance_level": 0.05,
+    "bootstrap_iterations": 1000,
+    "confidence_interval": "95%"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "multiclass": {
+    "detection": {
+      "model_name": "Multi-Class Model",
+      "has_dropout": true,
+      "dropout_count": 1,
+      "dropout_layers": [
+        {
+          "name": "dropout_4",
+          "type": "Dropout",
+          "rate": 0.4
+        }
+      ]
+    },
+    "stochastic_test": {
+      "is_stochastic": false,
+      "mean_variance": 1.2027596800467943e-15
+    },
+    "analysis": {
+      "case": 2,
+      "recommendation": "CASE 2: Dropout exists BUT not active",
+      "action": "Enable dropout during inference for MC Dropout",
+      "status": "requires_activation",
+      "has_dropout": true,
+      "is_stochastic": false
+    }
+  },
+  "binary": {
+    "detection": {
+      "model_name": "Binary Model",
+      "has_dropout": true,
+      "dropout_count": 1,
+      "dropout_layers": [
+        {
+          "name": "dropout_1",
+          "type": "Dropout",
+          "rate": 0.4
+        }
+      ]
+    },
+    "stochastic_test": {
+      "is_stochastic": false,
+      "mean_variance": 0.0
+    },
+    "analysis": {
+      "case": 2,
+      "recommendation": "CASE 2: Dropout exists BUT not active",
+      "action": "Enable dropout during inference for MC Dropout",
+      "status": "requires_activation",
+      "has_dropout": true,
+      "is_stochastic": false
+    }
+  },
+  "timestamp": "2026-04-06T09:55:41.870956",
+  "summary": {
+    "multiclass_case": 2,
+    "binary_case": 2,
+    "mc_dropout_available": true,
+    "requires_activation": true
+  }
+}
